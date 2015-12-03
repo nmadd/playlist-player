@@ -1,0 +1,21 @@
+/*$randoColor: rgb((random(256)-10), (random(256)-10), (random(256)-10);
+*/
+* {
+  box-sizing: border-box; }
+
+.btn {
+  margin: 10px 10px 0px; }
+
+.song {
+  margin: 10px; }
+
+.progress-bar {
+  background-color: magenta;
+  margin: 0 auto; }
+
+.progress {
+  width: 100%;
+  margin: 0 auto; }
+
+p:hover {
+  color: magenta; }

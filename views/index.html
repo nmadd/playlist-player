@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<head>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/soundmanager2/2.97a.20150601/script/soundmanager2.js"></script>
+<script src="/jquery/jquery.min.js"></script>
+<!-- <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script> -->
+<link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="/public/stylesheets/player.css" rel="stylesheet">
+<script type="text/javascript" src= "../player.js"></script>
+</head>
+<button class="btn play-pause">Play/Pause</button>
+<br>
+<br>
+
+{% block content %}
+{% for song in playlist %}
+<p class="song" val='{{song.url}}'> {{song.order}}. {{song.artist}} - {{song.title}}</p>
+{% endfor %}
+{% endblock %}
+<br>
+<div class="progress">
+  <div class="progress-bar" id="progress1" role="progressbar" aria-valuenow="70"
+  aria-valuemin="0" aria-valuemax="100">
+    <span class="sr-only">70% Complete</span>
+  </div>
+</div>
+<br>
+<!-- 
+<br>
+<br>
+<button class="load-btn" name="buttonName" value="Time">
+    Jungle - Time</button>
+    <br>
+<button class="load-btn" name="buttonName" value="Bloom">
+    Odesza - Bloom</button>
+    <br>
+<button class="load-btn" name="buttonName" value="1-05 Wait">
+M83 - Wait </button>
+<br>
+<br>
+
+<br> -->
+<!-- HTML File Upload -->
+<input type="file" id="files" name="files[]" multiple />
+<output id="list"></output>
+
+<script>
+  function handleFileSelect(evt) {
+    var files = evt.target.files; // FileList object
+
+    // files is a FileList of File objects. List some properties.
+    var output = [];
+    for (var i = 0, f; f = files[i]; i++) {
+      output.push('<li><strong>', escape(f.name), '</strong> (', f.type || 'n/a', ') - ',
+                  f.size, ' bytes, last modified: ',
+                  f.lastModifiedDate ? f.lastModifiedDate.toLocaleDateString() : 'n/a',
+                  '</li>');
+    }
+    document.getElementById('list').innerHTML = '<ul>' + output.join('') + '</ul>';
+  }
+
+  document.getElementById('files').addEventListener('change', handleFileSelect, false);
+</script>
