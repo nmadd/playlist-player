@@ -1,21 +1,71 @@
 /*$randoColor: rgb((random(256)-10), (random(256)-10), (random(256)-10);
 */
-* {
-  box-sizing: border-box; }
 
-.btn {
-  margin: 10px 10px 0px; }
+* {
+    box-sizing: border-box;
+}
+
+™ .btn {
+    margin: 10px 10px 0px;
+}
 
 .song {
-  margin: 10px; }
+    margin: 10px;
+}
+
+.form {
+  margin-top: 60px;
+}
+
+.navbar {
+    overflow: hidden;
+}
 
 .progress-bar {
-  background-color: magenta;
-  margin: 0 auto; }
+    background-color: magenta;
+    margin: 0 auto;
+}
 
 .progress {
-  width: 100%;
-  margin: 0 auto; }
+    width: 100%;
+    margin: 0 auto;
+}
+
+.player-bar {
+    height: 80px;
+    background-color: white;
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.player-bar-buttons {
+    width: 130px;
+    margin: 0 auto;
+    margin-top: 15px;
+}
+
+.playlist {
+    margin-top: 50px;
+    text-align: center;
+    /*   width: 600px;
+  margin: 0 auto;*/
+}
+
+.current-song {
+    color: magenta;
+}
+
+a {
+    color: magenta;
+}
+
+#nav-items {
+    width: 400px;
+    margin: 0 auto;
+}
 
 p:hover {
-  color: magenta; }
+    color: magenta;
+}

@@ -6,33 +6,44 @@ var bluebird = require('bluebird');
 var swig = require('swig');
 var mongoose = require('mongoose');
 var Song = require('./models/songs.js').Song;
+var bodyParser = require("body-parser");
 
 
-//app.set('views', __dirname + '/views');
-//app.set('view engine','html');
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 app.use(express.static(__dirname));
+app.use(express.static(__dirname + "/views"));
+// app.use(express.static(__dirname + '/node_modules'));
+// app.use('/views', express.static(__dirname + '/views'));
 app.use('/bootstrap', express.static(__dirname + '/node_modules/bootstrap/dist'));
 app.use('/jquery', express.static(__dirname + '/node_modules/jquery/dist'));
 app.use('/public/stylesheets', express.static(__dirname + '/public/stylesheets/'));
 
-app.set('views', (__dirname +  '/views'));
-app.set('view engine', 'html');
-app.engine('html', swig.renderFile);
-swig.setDefaults({ cache: false });
+// app.set('views', (__dirname +  '/views'));
 
+// app.use('/', function(req,res){
+// 	res.redirect("/#/")
+// })
 app.get('/', function(req, res){
+		res.sendFile("/index.html")
+	})
+
+app.get('/songs', function(req, res, next){
 	Song.find({}).exec()
 	.then(function(songs){
-		var count = 1;
-		songs.forEach(function(song){
-			song.order = count;
-			count++;
-			console.log(song.order);
-		})
-		res.render('index',{playlist: songs})
+		res.json(songs);
 	})
-	
+	.then(null, next)
+});
+
+app.post('/addsong', function(req, res, next){
+	console.log(req.body);
+	Song.create({title: req.body.title})
+	// .then(function(songs){
+	// 	res.json(songs);
+	// })
+	// .then(null, next)
 });
 
 app.listen(3000, function(){
