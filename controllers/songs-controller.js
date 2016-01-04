@@ -1,7 +1,5 @@
 app.controller("SongsController", function ($scope, PlayerFactory, theSongs) {
-// 	Spotify.getAlbum('0sNOF9WDwhWunNAHPD3Baj').then(function (data) {
-//   console.log(data);
-// });
+
 	$scope.songs = theSongs;
 	// $scope.test = PlayerFactory.load;
 	// $scope.currentSong;

@@ -29,7 +29,7 @@ app.directive('playerBar', function(PlayerFactory, SongsFactory) {
                 var currentSong = PlayerFactory.getCurrentSong();
                 PlayerFactory.toggle(currentSong);
             };
-            SongsFactory.getSongs()
+            SongsFactory.getSpotifySongs()
             .then(function(songs){
                 scope.songs = songs;
             })

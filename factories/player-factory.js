@@ -18,26 +18,10 @@ app.factory("PlayerFactory", function($http, $q, $rootScope, SongsFactory) {
         return songIndex;
     }
 
-    // factory.setup = function(playlist){
-    //   var songUrl = playlist[0]
-    //   soundManager.setup({
-    //     url: './sounds/',
-    //     onready: function() {
-    //       currentSong = soundManager.createSound({
-    //         id: 'aSound',
-    //         url: './sounds/Time.m4a'
-    //       });
-    //       //mySound.play();
-    //     }, 
-    //     ontimeout: function() {
-    //       // Hrmm, SM2 could not start. Missing SWF? Flash blocked? Show an error, etc.?
-    //     }
-    //   });
-    // }
-
     factory.load = function(song, playlist) {
         var songUrl;
         var songObj;
+        console.log(song)
         if (song.eventPhase) {
             songObj = JSON.parse(event.currentTarget.attributes.data.nodeValue);
             songUrl = event.currentTarget.attributes.songURL.nodeValue;

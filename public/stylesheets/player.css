@@ -9,6 +9,10 @@
     margin: 10px 10px 0px;
 }
 
+.add-button {
+    display: inline-block;
+}
+
 .song {
     margin: 10px;
 }

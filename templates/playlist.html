@@ -5,8 +5,8 @@
         </div>
         <div class="playlist col-lg-4">
             <div ng-repeat="song in songs">
-                <p ng-click="test($event, songs)" class="song" songURL="{{song.url}} " data="{{song}}" val='{{song.url}}'> {{$index + 1}}. {{song.artist[0]}} - {{song.title}}</p>
-                 <!-- <a href="{{song.external_urls.spotify}}"> {{$index + 1}}. {{song.artist[0]}} - {{song.name}}</p> -->
+                <!-- <p ng-click="test($event, songs)" class="song" songURL="{{song.url}} " data="{{song}}" val='{{song.url}}'> {{$index + 1}}. {{song.artist[0]}} - {{song.name}}</p> -->
+                 <a ng-click="loadSpotifySong(song)"> {{$index + 1}}. {{song.artist}} - {{song.title}}</p>
             </div>
             <br>
         </div>

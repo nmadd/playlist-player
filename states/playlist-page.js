@@ -8,7 +8,7 @@ app.config(function($stateProvider, $urlRouterProvider){
 		controller: 'SongsController',
 		resolve: {
 			theSongs: function (SongsFactory) {
-				return SongsFactory.getSongs()
+				return SongsFactory.getSpotifySongs()
 			}
 		}
 	})
